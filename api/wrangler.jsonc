@@ -1,0 +1,22 @@
+{
+  "name": "hauzral-legal-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-03-01",
+  "workers_dev": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "hauzral-legal-db",
+      "database_id": "your-database-id-here"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "DOCUMENTS",
+      "bucket_name": "hauzral-legal-documents"
+    }
+  ],
+  "vars": {
+    "JWT_SECRET": "change-this-to-a-strong-secret-in-production"
+  }
+}

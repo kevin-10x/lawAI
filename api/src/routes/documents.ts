@@ -13,12 +13,11 @@ router.post('/upload', async (c) => {
 
   if (!file) return c.json({ detail: 'No file provided' }, 400);
 
-  const key = `${user.id}/${Date.now()}-${file.name}`;
-  await c.env.DOCUMENTS.put(key, file);
+  const content = await file.text();
 
   const { meta } = await c.env.DB.prepare(
-    'INSERT INTO documents (user_id, title, file_path, file_type, doc_type, status) VALUES (?, ?, ?, ?, ?, ?)'
-  ).bind(user.id, title, key, file.name.split('.').pop(), 'other', 'completed').run();
+    'INSERT INTO documents (user_id, title, content, file_type, doc_type, status) VALUES (?, ?, ?, ?, ?, ?)'
+  ).bind(user.id, title, content, file.name.split('.').pop(), 'other', 'completed').run();
 
   const doc = await c.env.DB.prepare('SELECT id, title, status FROM documents WHERE id = ?').bind(meta.last_row_id).first();
   return c.json({ message: 'Document uploaded', document: doc });

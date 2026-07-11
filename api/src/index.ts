@@ -12,7 +12,12 @@ import { generateContract, legalChatbotResponse, analyzeCaseResearch } from './s
 const app = new Hono<{ Bindings: Env }>();
 
 app.use('/*', cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000', 'https://hauzral-legal.pages.dev'],
+  origin: (origin) => {
+    if (!origin) return '*';
+    const allowed = ['http://localhost:5173', 'http://localhost:3000', 'https://hauzral-legal.pages.dev'];
+    if (allowed.includes(origin) || origin.endsWith('.hauzral-legal.pages.dev')) return origin;
+    return null;
+  },
   credentials: true,
 }));
 

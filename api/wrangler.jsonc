@@ -6,7 +6,7 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "hauzral-legal-db",
+      "database_name": "legal",
       "database_id": "84d79e3a-fb18-4dbf-b5bd-0118b11969fa"
     }
   ],

@@ -7,7 +7,7 @@
     {
       "binding": "DB",
       "database_name": "hauzral-legal-db",
-      "database_id": "your-database-id-here"
+      "database_id": "84d79e3a-fb18-4dbf-b5bd-0118b11969fa"
     }
   ],
   "r2_buckets": [
@@ -17,6 +17,6 @@
     }
   ],
   "vars": {
-    "JWT_SECRET": "change-this-to-a-strong-secret-in-production"
+    "JWT_SECRET": "6654efe4230923a61b8f11105f4b9a66477429068c46046433f720671b8bf3d7"
   }
 }
